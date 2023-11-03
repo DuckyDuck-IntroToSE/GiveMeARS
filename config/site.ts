@@ -64,5 +64,6 @@ export const siteConfig = {
 		github: "https://github.com/",
 		twitter: "https://twitter.com/",
 		discord: "https://discord.gg/",
+		docs: "https://discord.gg"
 	},
 };
