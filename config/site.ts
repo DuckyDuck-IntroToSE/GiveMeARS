@@ -4,10 +4,10 @@ export const siteConfig = {
 	name: "GiveMeARS",
 	description: "Make beautiful websites regardless of your design experience.",
 	navItems: [
-		{
-			label: "Home",
-			href: "/",
-		},
+		// {
+		// 	label: "Home",
+		// 	href: "/",
+		// },
 		{
 			label: "About",
 			href: "/about",
@@ -28,29 +28,37 @@ export const siteConfig = {
 	],
 	navMenuItems: [
 		{
+			label: "Books",
+			href: "/books",
+		},
+		{
 			label: "Profile",
 			href: "/profile",
 		},
 		{
-			label: "Dashboard",
-			href: "/dashboard",
+			label: "About",
+			href: "/about",
 		},
-		{
-			label: "Projects",
-			href: "/projects",
-		},
-		{
-			label: "Team",
-			href: "/team",
-		},
-		{
-			label: "Calendar",
-			href: "/calendar",
-		},
-		{
-			label: "Settings",
-			href: "/settings",
-		},
+		// {
+		// 	label: "Dashboard",
+		// 	href: "/dashboard",
+		// },
+		// {
+		// 	label: "Projects",
+		// 	href: "/projects",
+		// },
+		// {
+		// 	label: "Team",
+		// 	href: "/team",
+		// },
+		// {
+		// 	label: "Calendar",
+		// 	href: "/calendar",
+		// },
+		// {
+		// 	label: "Settings",
+		// 	href: "/settings",
+		// },
 		{
 			label: "Help & Feedback",
 			href: "/help-feedback",
