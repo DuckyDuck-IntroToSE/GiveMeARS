@@ -1,4 +1,3 @@
-"use client";
 import {
 	Navbar as NextUINavbar,
 	NavbarContent,
@@ -40,6 +39,8 @@ import {
 	DropdownItem
 } from "@nextui-org/dropdown";
 import { User } from "@nextui-org/user";
+import { SignInButton, SignUpButton, auth, UserButton } from "@clerk/nextjs";
+ 
 
 export const Navbar = () => {
 	const searchInput = (
@@ -126,6 +127,7 @@ export const Navbar = () => {
 
 		);
 	};
+	const { userId } = auth();
 
 	return (
 		<NextUINavbar maxWidth="xl" position="sticky" isBordered isBlurred={false}>
@@ -171,7 +173,7 @@ export const Navbar = () => {
 					<Link isExternal href={siteConfig.links.github} aria-label="Github">
 						<GithubIcon className="text-default-500" />
 					</Link> */}
-		
+
 					<NotifyIcon className="text-default-500"></NotifyIcon>
 					<CartIcon className="text-default-500"></CartIcon>
 					<ThemeSwitch />
@@ -188,7 +190,21 @@ export const Navbar = () => {
 					>
 						Sponsor
 					</Button> */}
-					<AvatarIcon></AvatarIcon>
+
+					{/* <AvatarIcon></AvatarIcon> */}
+					{/* <SignInButton></SignInButton>
+					<SignUpButton></SignUpButton> */}
+
+					{!userId && (<>
+						<Link href="sign-in" className="mr-4">Sign In</Link>
+						<Link href="sign-up" className="mr-4">Sign Up</Link>
+					</>)}
+
+					<div>
+						<UserButton></UserButton>
+					</div>
+
+
 
 				</NavbarItem>
 			</NavbarContent>
