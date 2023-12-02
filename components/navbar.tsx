@@ -130,8 +130,8 @@ export const Navbar = () => {
 	const { userId } = auth();
 
 	return (
-		<NextUINavbar maxWidth="xl" position="sticky" isBordered isBlurred={false}>
-			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+		<NextUINavbar maxWidth="xl" position="static" isBordered isBlurred={false}>
+			<NavbarContent className="basis-1/5 sm:basis-full justify-start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
 						<Logo />
@@ -159,8 +159,7 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarContent
-				className="hidden sm:flex basis-1/5 sm:basis-full"
-				justify="end"
+				className="hidden sm:flex basis-1/5 sm:basis-full justify-end"
 			>
 				<NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
 				<NavbarItem className="hidden sm:flex gap-2">
@@ -176,7 +175,7 @@ export const Navbar = () => {
 
 					<NotifyIcon className="text-default-500"></NotifyIcon>
 					<CartIcon className="text-default-500"></CartIcon>
-					<ThemeSwitch />
+					{/* <ThemeSwitch /> */}
 				</NavbarItem>
 
 				<NavbarItem className="hidden md:flex">
@@ -201,7 +200,7 @@ export const Navbar = () => {
 					</>)}
 
 					<div>
-						<UserButton></UserButton>
+						<UserButton afterSignOutUrl="/sign-in"></UserButton>
 					</div>
 
 
