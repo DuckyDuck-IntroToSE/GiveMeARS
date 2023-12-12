@@ -4,27 +4,14 @@ export const siteConfig = {
 	name: "GiveMeARS",
 	description: "Make beautiful websites regardless of your design experience.",
 	navItems: [
-		// {
-		// 	label: "Home",
-		// 	href: "/",
-		// },
 		{
 			label: "About",
 			href: "/about",
 		},
-		// {
-		// 	label: "Categories",
-		// 	href: "/categories",
-		// },
 		{
 			label: "Books",
 			href: "/books",
 		},
-		// {
-		//   label: "Blog",
-		//   href: "/blog",
-		// },
-	
 	],
 	navMenuItems: [
 		{
@@ -39,26 +26,6 @@ export const siteConfig = {
 			label: "About",
 			href: "/about",
 		},
-		// {
-		// 	label: "Dashboard",
-		// 	href: "/dashboard",
-		// },
-		// {
-		// 	label: "Projects",
-		// 	href: "/projects",
-		// },
-		// {
-		// 	label: "Team",
-		// 	href: "/team",
-		// },
-		// {
-		// 	label: "Calendar",
-		// 	href: "/calendar",
-		// },
-		// {
-		// 	label: "Settings",
-		// 	href: "/settings",
-		// },
 		{
 			label: "Help & Feedback",
 			href: "/help-feedback",
@@ -68,6 +35,15 @@ export const siteConfig = {
 			href: "/logout",
 		},
 	],
+
+	settingsMenuItems: {
+		instructorDashboard:{
+			label: "Instructor Dashboard",
+			href: "/instructor"
+		}
+	},
+		
+
 	links: {
 		github: "https://github.com/",
 		twitter: "https://twitter.com/",

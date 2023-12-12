@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { fontSans } from "@/config/fonts";
 import clsx from "clsx";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ToasterProvider } from "@/components/providers/toaster-provider";
 
 export default function RootLayout({
 	children,
@@ -20,7 +21,9 @@ export default function RootLayout({
 						fontSans.variable
 					)}
 				>
-					{children}
+					<ToasterProvider/>
+						{children}
+						
 				</body>
 			</html>
 		</ClerkProvider>

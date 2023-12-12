@@ -1,6 +1,6 @@
 "use client";
 
-import { Layout, Compass } from "lucide-react";
+import { Layout, Compass, LibraryBig } from "lucide-react";
 import { SideBarItem } from "./sidebar-item";
 
 
@@ -11,9 +11,9 @@ const guestRoutes = [
         href: '/instructor'
     },
     {
-        icon: Compass,
-        label: "Browse",
-        href: '/instructor/search'
+        icon: LibraryBig,
+        label: "Course",
+        href: '/instructor/courses'
     }
 ];
 

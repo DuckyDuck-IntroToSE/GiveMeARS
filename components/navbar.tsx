@@ -7,8 +7,6 @@ import {
 	NavbarItem,
 	NavbarMenuItem,
 } from "@nextui-org/navbar";
-import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 
@@ -18,29 +16,20 @@ import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
 
-import { ThemeSwitch } from "@/components/theme-switch";
 import {
-	TwitterIcon,
-	GithubIcon,
-	DiscordIcon,
-	HeartFilledIcon,
 	SearchIcon,
 	CartIcon,
 	NotifyIcon
 } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
-import { Avatar, AvatarGroup, AvatarIcon } from "@nextui-org/avatar";
-import {
-	Dropdown,
-	DropdownTrigger,
-	DropdownMenu,
-	DropdownSection,
-	DropdownItem
-} from "@nextui-org/dropdown";
 import { User } from "@nextui-org/user";
 import { SignInButton, SignUpButton, auth, UserButton } from "@clerk/nextjs";
- 
+import { Categories } from "@/components/dropdown-items";
+import { SettingIcon } from "@/components/dropdown-items";
+import { MobileSidebar } from "@/components/mobile-sidebar";
+import { DashboardNavbarRoutes } from "@/components/navbar-routes";
+import { ThemeSwitch } from "@/components/theme-switch";
 
 export const Navbar = () => {
 	const searchInput = (
@@ -53,85 +42,19 @@ export const Navbar = () => {
 			labelPlacement="outside"
 			placeholder="Search..."
 			startContent={
-				<SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
+				<SearchIcon className="text-base text-default-500 pointer-events-none flex-shrink-0" />
 			}
 			type="search"
 		/>
 	);
 
-	const AvatarIcon = () => {
-		return (
-			<div className="flex items-center gap-4">
-				<Dropdown placement="bottom-end">
-					<DropdownTrigger>
-						<Avatar
-							isBordered
-							as="button"
-							className="transition-transform"
-							src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-						/>
-					</DropdownTrigger>
-					<DropdownMenu aria-label="Profile Actions" variant="flat">
-						<DropdownSection aria-label="Profile & Actions" showDivider>
-							<DropdownItem key="profile" className="h-14 gap-2">
-								<User
-									name="Jane Doe"
-									description="Product Designer"
-									avatarProps={{
-										src: "https://i.pravatar.cc/150?u=a042581f4e29026704d"
-									}}
-								/>
-							</DropdownItem>
-						</DropdownSection>
 
-						<DropdownSection aria-label="Profile & Actions" showDivider>
-							<DropdownItem key="my_learning">My learning</DropdownItem>
-							<DropdownItem key="my_cart">My cart</DropdownItem>
-							<DropdownItem key="intructor_dashboard">Intructor dashboard</DropdownItem>
-						</DropdownSection>
 
-						<DropdownSection aria-label="Profile & Actions" showDivider>
-							<DropdownItem key="account_settings">Account settings</DropdownItem>
-							<DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-						</DropdownSection>
-						<DropdownItem key="logout" color="danger">Log Out</DropdownItem>
-
-					</DropdownMenu>
-				</Dropdown>
-			</div>
-
-		);
-	};
-
-	const Categories = () => {
-		return (
-			<div className="flex items-center gap-4">
-				<Dropdown>
-					<DropdownTrigger>
-						<p className={clsx(
-							linkStyles({ color: "foreground" }),
-							"data-[active=true]:text-primary data-[active=true]:font-medium"
-						)}
-							color="foreground"> Categories</p>
-					</DropdownTrigger>
-					<DropdownMenu aria-label="Profile Actions" variant="flat">
-						<DropdownItem key="artificial_intelligence" >Artificial Intelligence</DropdownItem>
-						<DropdownItem key="database_design_implement" >Database Design & Implement</DropdownItem>
-						<DropdownItem key="devops" >DevOps</DropdownItem>
-						<DropdownItem key="network_security" >Network Security</DropdownItem>
-						<DropdownItem key="software_engineering" >Software Engineering</DropdownItem>
-						<DropdownItem key="web_development" >Web Development</DropdownItem>
-					</DropdownMenu>
-				</Dropdown>
-			</div>
-
-		);
-	};
 	const { userId } = auth();
 
 	return (
-		<NextUINavbar maxWidth="xl" position="static" isBordered isBlurred={false}>
-			<NavbarContent className="basis-1/5 sm:basis-full justify-start">
+		<NextUINavbar maxWidth="xl" position="sticky" isBordered isBlurred={true}>
+			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
 						<Logo />
@@ -159,7 +82,8 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarContent
-				className="hidden sm:flex basis-1/5 sm:basis-full justify-end"
+				className="hidden sm:flex basis-1/5 sm:basis-full"
+				justify="end"
 			>
 				<NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
 				<NavbarItem className="hidden sm:flex gap-2">
@@ -175,7 +99,8 @@ export const Navbar = () => {
 
 					<NotifyIcon className="text-default-500"></NotifyIcon>
 					<CartIcon className="text-default-500"></CartIcon>
-					{/* <ThemeSwitch /> */}
+					<SettingIcon></SettingIcon>
+					<ThemeSwitch />
 				</NavbarItem>
 
 				<NavbarItem className="hidden md:flex">
@@ -203,12 +128,15 @@ export const Navbar = () => {
 						<UserButton afterSignOutUrl="/sign-in"></UserButton>
 					</div>
 
+					
+					
+
 
 
 				</NavbarItem>
 			</NavbarContent>
 
-			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+			{/* <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
 				<Link isExternal href={siteConfig.links.github} aria-label="Github">
 					<GithubIcon className="text-default-500" />
 				</Link>
@@ -237,9 +165,18 @@ export const Navbar = () => {
 						</NavbarMenuItem>
 					))}
 				</div>
-			</NavbarMenu>
+			</NavbarMenu> */}
 		</NextUINavbar>
 	);
 };
 
+
+export const DashboardNavbar = () => {
+	return (
+		<div className="p-5 border-b h-full flex items-center bg-white shadow-sm">
+			<MobileSidebar></MobileSidebar>
+			<DashboardNavbarRoutes></DashboardNavbarRoutes>
+		</div>
+	);
+};
 

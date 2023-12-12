@@ -2,7 +2,7 @@ import React from 'react'
 
 const InstructorPage = () => {
   return (
-    <div>
+    <div className='flex flex-col items-center p-10'>
       Instructor Page!
     </div>
   )
