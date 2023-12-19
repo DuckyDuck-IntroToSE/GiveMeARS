@@ -1,29 +1,9 @@
 import "@/styles/globals.css";
-import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { Providers } from "./providers";
-import { Navbar } from "@/components/navbar";
-import { Link } from "@nextui-org/link";
-import Footer from "@/components/footer";
 import clsx from "clsx";
-
-export const metadata: Metadata = {
-	title: {
-		default: siteConfig.name,
-		template: `%s - ${siteConfig.name}`,
-	},
-	description: siteConfig.description,
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "black" },
-	],
-	icons: {
-		icon: "/favicon.ico",
-		shortcut: "/favicon-16x16.png",
-		apple: "/apple-touch-icon.png",
-	},
-};
+import { ClerkProvider } from "@clerk/nextjs";
+import { ToasterProvider } from "@/components/providers/toaster-provider";
+import { Providers } from "./providers";
 
 export default function RootLayout({
 	children,
@@ -31,26 +11,27 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
-			<head>
-				<link rel="icon" type="image/x-icon" href="/images/favicon.ico"></link>
-			</head>
-			<body
-				className={clsx(
-					"min-h-screen bg-background font-sans antialiased",
-					fontSans.variable
-				)}
-			>
-				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-					<div className="relative flex flex-col">
-						<Navbar />
-						<main className="container mx-auto max-w-7xl px-6 flex-grow">
-							{children}
-						</main>
-						<Footer></Footer>
-					</div>
-				</Providers>
-			</body>
-		</html>
+		<ClerkProvider>
+			
+			<html lang="en" suppressHydrationWarning>
+				<head>
+					<link rel="icon" href="/images/logo.ico"></link>
+				</head>
+				<body
+					className={clsx(
+						"min-h-screen bg-background font-sans antialiased",
+						fontSans.variable
+					)}
+				>
+					<ToasterProvider/>
+					<Providers themeProps={{ attribute: "class", defaultTheme: "white" }}>
+
+						{children}
+					</Providers>
+						
+				</body>
+			</html>
+		</ClerkProvider>
+
 	);
 }
