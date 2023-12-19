@@ -23,7 +23,7 @@ import { usePathname } from "next/navigation";
 import { Logo } from "../icons";
 import NextLink from "next/link";
 import { ThemeSwitch } from "@/components/theme-switch";
-
+import { UserButton } from "@clerk/nextjs";
 
 export const SidebarWrapper = () => {
   const pathName = usePathname();
@@ -56,7 +56,7 @@ export const SidebarWrapper = () => {
             />
             <SidebarMenu title="Main Menu">
               <SidebarItem
-                isActive={usePathname() === "/instructor/courses"}
+                isActive={usePathname().startsWith("/instructor/courses")}
                 title="Courses"
                 icon={<AccountsIcon />}
                 href="/instructor/courses"
@@ -136,6 +136,11 @@ export const SidebarWrapper = () => {
                 size="sm"
               />
             </Tooltip>
+
+            <Tooltip content={"Account"} color="primary">
+              <UserButton afterSignOutUrl="/sign-in"></UserButton>
+            </Tooltip> 
+
           </div>
         </div>
       </div>
