@@ -27,8 +27,6 @@ import { User } from "@nextui-org/user";
 import { SignInButton, SignUpButton, auth, UserButton } from "@clerk/nextjs";
 import { Categories } from "@/components/dropdown-items";
 import { SettingIcon } from "@/components/dropdown-items";
-import { MobileSidebar } from "@/components/mobile-sidebar";
-import { DashboardNavbarRoutes } from "@/components/navbar-routes";
 import { ThemeSwitch } from "@/components/theme-switch";
 
 export const Navbar = () => {
@@ -171,12 +169,4 @@ export const Navbar = () => {
 };
 
 
-export const DashboardNavbar = () => {
-	return (
-		<div className="p-5 border-b h-full flex items-center bg-white shadow-sm">
-			<MobileSidebar></MobileSidebar>
-			<DashboardNavbarRoutes></DashboardNavbarRoutes>
-		</div>
-	);
-};
 
