@@ -31,7 +31,7 @@ export const Logo = () => {
 			alt="Logo"
 			width={32}
 			height={32}
-			src="/images/logo/logo-2.svg"
+			src="/images/logo/logo.svg"
 		/>
 	);
 }

@@ -3,6 +3,7 @@ import { fontSans } from "@/config/fonts";
 import clsx from "clsx";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToasterProvider } from "@/components/providers/toaster-provider";
+import { Providers } from "./providers";
 
 export default function RootLayout({
 	children,
@@ -11,9 +12,10 @@ export default function RootLayout({
 }) {
 	return (
 		<ClerkProvider>
+			
 			<html lang="en" suppressHydrationWarning>
 				<head>
-					<link rel="icon" type="image/x-icon" href="/images/favicon.ico"></link>
+					<link rel="icon" href="/images/logo.ico"></link>
 				</head>
 				<body
 					className={clsx(
@@ -22,7 +24,10 @@ export default function RootLayout({
 					)}
 				>
 					<ToasterProvider/>
+					<Providers themeProps={{ attribute: "class", defaultTheme: "white" }}>
+
 						{children}
+					</Providers>
 						
 				</body>
 			</html>
