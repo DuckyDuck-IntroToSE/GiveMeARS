@@ -1,5 +1,3 @@
-import SideBar from "@/components/sidebar";
-import { DashboardNavbar } from "@/components/navbar";
 import { SidebarWrapper } from "@/components/sidebar/sidebar";
 import Footer from "@/components/footer";
 
