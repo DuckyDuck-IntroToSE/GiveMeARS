@@ -138,7 +138,7 @@ export const SidebarWrapper = () => {
             </Tooltip>
 
             <Tooltip content={"Account"} color="primary">
-              <UserButton afterSignOutUrl="/sign-in"></UserButton>
+              <UserButton afterSignOutUrl="/"></UserButton>
             </Tooltip> 
 
           </div>

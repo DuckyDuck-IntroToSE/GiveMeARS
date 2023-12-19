@@ -28,6 +28,8 @@ import { SignInButton, SignUpButton, auth, UserButton } from "@clerk/nextjs";
 import { Categories } from "@/components/dropdown-items";
 import { SettingIcon } from "@/components/dropdown-items";
 import { ThemeSwitch } from "@/components/theme-switch";
+import { Button } from "@nextui-org/button";
+
 
 export const Navbar = () => {
 	const searchInput = (
@@ -118,16 +120,17 @@ export const Navbar = () => {
 					<SignUpButton></SignUpButton> */}
 
 					{!userId && (<>
-						<Link href="sign-in" className="mr-4">Sign In</Link>
-						<Link href="sign-up" className="mr-4">Sign Up</Link>
+						<Link href="sign-in" className="mr-2"><Button color="default"> Sign In </Button></Link>
+						<Link href="sign-up" className="mr-2"><Button color="danger"> Sign Up </Button></Link>
+
 					</>)}
 
 					<div>
-						<UserButton afterSignOutUrl="/sign-in"></UserButton>
+						<UserButton afterSignOutUrl="/"></UserButton>
 					</div>
 
-					
-					
+
+
 
 
 
