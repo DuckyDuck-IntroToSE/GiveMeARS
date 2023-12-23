@@ -18,7 +18,7 @@ export default function InstructorPage({
                         <SideBar></SideBar>
                     </div> */}
                 <SidebarWrapper />
-                <main className="h-full">
+                <main className="h-ful w-full">
                     {children}
                 </main>
             </div>

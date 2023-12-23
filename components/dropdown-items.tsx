@@ -22,12 +22,13 @@ export const Categories = () => {
                         color="foreground"> Categories</button>
                 </DropdownTrigger>
                 <DropdownMenu >
-                    <DropdownItem key="artificial_intelligence" >Artificial Intelligence</DropdownItem>
-                    <DropdownItem key="database_design_implement" >Database Design & Implement</DropdownItem>
-                    <DropdownItem key="devops" >DevOps</DropdownItem>
-                    <DropdownItem key="network_security" >Network Security</DropdownItem>
-                    <DropdownItem key="software_engineering" >Software Engineering</DropdownItem>
-                    <DropdownItem key="web_development" >Web Development</DropdownItem>
+                    {
+                        siteConfig.categories.map((item) => (
+                            <DropdownItem>
+                                {item.name}
+                            </DropdownItem>
+                        ))
+                    }
                 </DropdownMenu>
             </Dropdown>
         </div>
