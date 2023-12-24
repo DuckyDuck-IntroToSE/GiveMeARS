@@ -4,7 +4,8 @@ import InstructorCourseTable from "@/components/table/InstructorCourseTable"
 import { db } from "@/lib/ds"
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
-import { TableWrapper } from "@/components/table/table"
+import { DataTable } from "@/components/table/data-table"
+import { columns } from "@/components/table/colunms"
 
 
 const CoursesPage = async () => {
@@ -19,27 +20,15 @@ const CoursesPage = async () => {
       userID: userId,
     },
     orderBy: {
-      createdAt: "desc"
+      createdAt: "desc",
     }
   });
 
   return (
     <div className="flex flex-col items-center">
-      <Link href="/instructor/create">
-        <Button>New Course</Button>
-      </Link>
-
-
-      <div className="w-full p-4">
-      <InstructorCourseTable
-        courses={courses}
-      ></InstructorCourseTable>
+      <div className="w-full p-5">
+        <DataTable columns={columns} data={courses} />
       </div>
-      
-
-
-
-
     </div>
   )
 }

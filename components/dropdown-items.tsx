@@ -8,7 +8,7 @@ import {
 	DropdownItem
 } from "@nextui-org/dropdown";
  
-import { Settings } from 'lucide-react';
+import { Settings, MoreHorizontal } from 'lucide-react';
 import { useRouter } from "next/navigation";
 import { Router } from "next/router";
 import { SiteConfig, siteConfig } from "@/config/site";
@@ -44,7 +44,7 @@ export const SettingIcon = () => {
         <div className="flex items-center gap-4">
             <Dropdown placement="bottom-end">
                 <DropdownTrigger>
-                    <Settings className="text-default-500"></Settings>
+                    <MoreHorizontal className="h-4 w-4"></MoreHorizontal>
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Profile Actions" variant="flat">
                     <DropdownSection aria-label="Profile & Actions" showDivider>
@@ -65,3 +65,4 @@ export const SettingIcon = () => {
         </div>
     );
 };
+
