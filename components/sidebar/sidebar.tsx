@@ -130,12 +130,6 @@ export const SidebarWrapper = () => {
                 <ThemeSwitch />
               </div>
             </Tooltip>
-            <Tooltip content={"Profile"} color="primary">
-              <Avatar
-                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                size="sm"
-              />
-            </Tooltip>
 
             <Tooltip content={"Account"} color="primary">
               <UserButton afterSignOutUrl="/"></UserButton>

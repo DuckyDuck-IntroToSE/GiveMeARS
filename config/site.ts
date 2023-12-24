@@ -50,4 +50,31 @@ export const siteConfig = {
 		discord: "https://discord.gg/",
 		docs: "https://discord.gg"
 	},
+
+	categories: [
+		{
+			name: "Artificial Intelligence",
+			cover: "",
+		},
+		{
+			name: "Database Design & Implement",
+			cover: "",
+		},
+		{
+			name: "DevOps",
+			cover: "",
+		},
+		{
+			name: "Network Security",
+			cover: "",
+		},
+		{
+			name: "Software Engineering",
+			cover: "",
+		},
+		{
+			name: "Web Development",
+			cover: "",
+		},
+	]
 };
