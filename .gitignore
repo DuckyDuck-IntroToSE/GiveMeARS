@@ -70,10 +70,10 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variables file
-# .env
-# .env.local
-# .env.test
-# .env.production
+.env
+.env.local
+.env.test
+.env.production
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -130,3 +130,5 @@ dist
 graphql_schema.json
 .graphql_cache
 .graphql_ppx_cache
+.env
+.env

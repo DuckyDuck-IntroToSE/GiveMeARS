@@ -121,7 +121,7 @@ export const Navbar = () => {
 
 					{!userId && (<>
 						<Link href="sign-in" className="mr-2"><Button color="default"> Sign In </Button></Link>
-						<Link href="sign-up" className="mr-2"><Button color="danger"> Sign Up </Button></Link>
+						<Link href="sign-up" className="mr-2"><Button className="bg-blue-500"> Sign Up </Button></Link>
 
 					</>)}
 

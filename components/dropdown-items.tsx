@@ -44,7 +44,7 @@ export const SettingIcon = () => {
         <div className="flex items-center gap-4">
             <Dropdown placement="bottom-end">
                 <DropdownTrigger>
-                    <MoreHorizontal className="h-4 w-4"></MoreHorizontal>
+                    <Settings className="text-default-500"></Settings>
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Profile Actions" variant="flat">
                     <DropdownSection aria-label="Profile & Actions" showDivider>
