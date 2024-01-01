@@ -14,9 +14,9 @@ export default function RootLayout({
 		<ClerkProvider>
 			
 			<html lang="en" suppressHydrationWarning>
-				<head>
+				{/* <head>
 					<link rel="icon" href="/images/logo.ico"></link>
-				</head>
+				</head> */}
 				<body
 					className={clsx(
 						"min-h-screen bg-background font-sans antialiased",
