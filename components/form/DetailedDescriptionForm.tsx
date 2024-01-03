@@ -14,19 +14,21 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Textarea } from "@nextui-org/react";
 import { Course } from "@prisma/client";
+import { Preview } from "../preview";
+import { Editor } from "../editor";
 
 
-interface DescriptionFormProps {
+interface DetailedDescriptionFormProps {
     initialData: Course;
     courseID: string;
 }
 
 const formSchema = z.object({
-    description: z.string().min(1, { message: "Description is required" }),
+    detailedDescription: z.string().min(1, { message: "Detailed description is required" }),
 });
 
-const DescriptionForm = (
-    { initialData, courseID }: DescriptionFormProps
+const DetailedDescriptionForm = (
+    { initialData, courseID }: DetailedDescriptionFormProps
 ) => {
     const [isEditing, setIsEditing] = useState(false);
     const toggleEdit = () => setIsEditing((prev) => !prev);
@@ -35,7 +37,7 @@ const DescriptionForm = (
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            description: initialData?.description || ""
+            detailedDescription: initialData?.detailedDescription || ""
         }
     });
 
@@ -43,7 +45,7 @@ const DescriptionForm = (
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             await axios.patch(`/api/courses/${courseID}`, values);
-            toast.success("Course updated successfully");
+            toast.success("Course detailed description updated");
             toggleEdit();
             router.refresh();
         }
@@ -51,12 +53,12 @@ const DescriptionForm = (
             toast.error("Something went wrong");
         }
     }
- 
+
     return (
         <div className="my-6 border rounded-xl p-4">
             <div className="font-medium flex items-center justify-between">
                 <div className="mr-4">
-                    Course Description
+                    Course Detailed Description
                 </div>
                 <Button onClick={toggleEdit} variant="ghost">
                     {isEditing ? (
@@ -73,32 +75,32 @@ const DescriptionForm = (
                 </Button>
             </div>
             {!isEditing && (
-                !initialData.description ? (
-                    <div className="italic"> 
+                !initialData.detailedDescription ? (
+                    <div className="italic">
                         No description provided
                     </div>
                 ) : (
-                    <div className="italic"> 
-                        {initialData.description} 
+                    <div className="italic">
+                        <Preview
+                            value={initialData.detailedDescription}
+                        />
                     </div>
                 )
             )}
             {
                 isEditing && (
                     <Form {...form}>
-                        <form 
+                        <form
                             onSubmit={form.handleSubmit(onSubmit)}
                             className="space-y-4 mt-4"
                         >
                             <FormField
                                 control={form.control}
-                                name="description"
+                                name="detailedDescription"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Textarea
-                                                disabled={isSubmitting}
-                                                placeholder="e.g 'The desctiprion of the course is ...'"
+                                            <Editor
                                                 {...field}
                                             />
                                         </FormControl>
@@ -112,17 +114,17 @@ const DescriptionForm = (
                                     disabled={!isValid || isSubmitting}
                                     type="submit"
                                 >
-                                    Save 
+                                    Save
                                 </Button>
                             </div>
 
                         </form>
                     </Form>
-                )                    
+                )
             }
-            
+
         </div>
     );
 }
 
-export default DescriptionForm;
+export default DetailedDescriptionForm;

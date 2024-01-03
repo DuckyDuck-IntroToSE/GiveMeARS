@@ -10,7 +10,6 @@ interface SearchPageProps {
     }
 };
 
-
 const CourseSearchPage = async (
     { searchParams }: SearchPageProps
 ) => {

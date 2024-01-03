@@ -9,7 +9,7 @@ import { ChapterTitleForm } from "@/components/form/ChapterTitleForm";
 import ChapterDescriptionForm from "@/components/form/ChapterDescriptionForm";
 import ChapterVideoForm from "@/components/form/ChapterVideoForm";
 import { Banner } from "@/components/banner";
-import ChapterActions from "@/components/ChapterActions";
+import ChapterActions from "@/components/chapter-acctions";
 
 
 const ChapterIdPage = async ({

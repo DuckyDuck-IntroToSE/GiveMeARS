@@ -2,13 +2,16 @@ import { db } from "@/lib/ds";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import TitleForm from "@/components/form/Titleform";
-import DescriptionForm from "@/components/form/DescriptionForm";
+import ShortDescriptionForm from "@/components/form/ShortDescriptionForm";
+import RequirementForm from "@/components/form/RequirementForm";
+import DetailedDescriptionForm from "@/components/form/DetailedDescriptionForm";
+import TargetAudienceForm from "@/components/form/TargetAudienceForm";
 import ImageForm from "@/components/form/ImageForm";
 import CategoryForm from "@/components/form/CategoryForm";
 import { Info, BookText, Component, FileType } from 'lucide-react';
 import AttachmentForm from "@/components/form/AttachmentForm";
 import ChaptersForm from "@/components/form/ChaptersForm";
-import CourseActions from "@/components/CourseActions";
+import CourseActions from "@/components/course-action";
 import { Banner } from "@/components/banner";
 
 
@@ -55,7 +58,10 @@ const CourseIdPage = async ({
 
     const requiredFields = [
         course.title,
-        course.description,
+        course.shortDescription,
+        course.requirements,
+        course.detailedDescription,
+        course.targetAudience,
         course.imageURL,
         course.categoryID,
         course.chapters.some((chapter) => chapter.isPublished),
@@ -109,11 +115,29 @@ const CourseIdPage = async ({
                     >
                     </TitleForm>
 
-                    <DescriptionForm
+                    <ShortDescriptionForm
                         initialData={course}
                         courseID={params.courseID}
                     >
-                    </DescriptionForm>
+                    </ShortDescriptionForm>
+
+                    <RequirementForm
+                        initialData={course}
+                        courseID={params.courseID}
+                    >
+                    </RequirementForm>
+
+                    <DetailedDescriptionForm
+                        initialData={course}
+                        courseID={params.courseID}
+                    >
+                    </DetailedDescriptionForm>
+
+                    <TargetAudienceForm
+                        initialData={course}
+                        courseID={params.courseID}
+                    >
+                    </TargetAudienceForm>
 
                     <ImageForm
                         initialData={course}
