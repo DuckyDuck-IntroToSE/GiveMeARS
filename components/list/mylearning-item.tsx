@@ -7,59 +7,62 @@ import { CourseProgress } from "@/components/ui/course-progress";
 import { Category, Course } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { getProgress } from "@/actions/get-progress";
 
-type CourseWithProgressWithCategory = Course & {
-    category: Category | null;
-    chapters: { id: string }[];
-    progress: number | null;
-  };
 
-interface CourseSearchItemProps {
-    item: CourseWithProgressWithCategory;
+interface MyLearningItemProps {
+    course: Course;
     index: number;
+    userID: string;
 }
 
-const CourseSearchItem = (
-    { item, index }: CourseSearchItemProps
+const MyLearningItem = (
+    { course, index, userID }: MyLearningItemProps
 ) => {
     const router = useRouter();
+
     const onPress = () => {
         toast.success("Redirecting to course page...");
-        router.push(`/courses/${item.id}`);
+        router.push(`/courses/content/${course.id}`);
     };
     return (
         <div>
-            <Card shadow="sm" key={index} isPressable onPress={onPress} className="w-full mb-2">
+            <Card
+                shadow="sm"
+                key={index}
+                isPressable
+                onPress={onPress}
+                className="w-full mb-2"
+                aria-label={course.title}
+            >
                 <CardBody className="overflow-visible p-0">
                     <Image
                         width={300}
                         height={100}
-                        alt={item.title}
+                        alt={course.title}
                         className="w-full object-cover h-[200px]"
-                        src={item.imageURL || ""}
+                        src={course.imageURL || ""}
                     />
                 </CardBody>
                 <CardFooter className="text-small flex flex-col gap-4">
                     <div className="flex flex-col w-full gap-4 items-start">
-                        <Chip color="default" className="text-small justify-center" >{item.category?.name}</Chip>
-
                         <h3 className="text-lg font-medium text-start">
-                            {item.title}
+                            {course.title}
                         </h3>
                         <p className="text-sm text-start">
-                            {item.shortDescription}
+                            {course.shortDescription}
                         </p>
                     </div>
 
-                    <div className="w-full flex flex-col items-center">
-                        {item.progress !== null && (
+                    {/* <div className="w-full flex flex-col items-center">
+                        {progressCount !== null && (
                             <CourseProgress
-                                color={item.progress === 100 ? "success" : "default"}
+                                color={progressCount === 100 ? "success" : "default"}
                                 size="sm"
-                                value={item.progress}
+                                value={progressCount}
                             />
                         )}
-                    </div>
+                    </div> */}
 
                 </CardFooter>
             </Card>
@@ -69,4 +72,4 @@ const CourseSearchItem = (
     );
 }
 
-export default CourseSearchItem;
+export default MyLearningItem;
