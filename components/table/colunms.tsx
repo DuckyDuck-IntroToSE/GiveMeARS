@@ -91,13 +91,12 @@ export const columns: ColumnDef<Course>[] = [
             <MoreHorizontal className="h-4 w-4"></MoreHorizontal>
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem 
-              onClick={() => { 
-                toast.success("Loading to course edition page...")
-                redirect(`/instructor/courses/${id}`) }}
+            <DropdownItem
+              onClick={() => { toast.success("Loading to course edition page...") }}
               startContent={<Pencil className="h-4 w-4"></Pencil>}
-              >
-              Edit Course
+            >
+              <Link href={`/instructor/courses/${id}`} className="w-full">Edit Course</Link>
+
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
