@@ -14,7 +14,7 @@ interface PreviousChapterButtonProps {
     previousChapterID: string;
 }
 
-export const NextChapterButton = async (
+export const NextChapterButton = (
     { courseID, nextChapterID }: NextChapterButtonProps
 ) => {
     const router = useRouter();
@@ -39,7 +39,7 @@ export const NextChapterButton = async (
 }
 
 
-export const PreviousChapterButton = async (
+export const PreviousChapterButton = (
     { courseID, previousChapterID }: PreviousChapterButtonProps
 ) => {
     const router = useRouter();
