@@ -112,38 +112,32 @@ const CourseIdPage = async ({
                     <TitleForm
                         initialData={course}
                         courseID={params.courseID}
-                    >
-                    </TitleForm>
+                    />
 
                     <ShortDescriptionForm
                         initialData={course}
                         courseID={params.courseID}
-                    >
-                    </ShortDescriptionForm>
+                    />
 
                     <RequirementForm
                         initialData={course}
                         courseID={params.courseID}
-                    >
-                    </RequirementForm>
+                    />
 
                     <DetailedDescriptionForm
                         initialData={course}
                         courseID={params.courseID}
-                    >
-                    </DetailedDescriptionForm>
+                    />
 
                     <TargetAudienceForm
                         initialData={course}
                         courseID={params.courseID}
-                    >
-                    </TargetAudienceForm>
+                    />
 
                     <ImageForm
                         initialData={course}
                         courseID={params.courseID}
-                    >
-                    </ImageForm>
+                    />
 
                     <CategoryForm
                         initialData={course}
@@ -152,7 +146,7 @@ const CourseIdPage = async ({
                             label: category.name,
                             value: category.id
                         }))}
-                    ></CategoryForm>
+                    />
 
                 </div>
 
@@ -166,8 +160,8 @@ const CourseIdPage = async ({
                     <ChaptersForm
                         initialData={course}
                         courseID={params.courseID}
-                    >
-                    </ChaptersForm>
+                    />
+                    
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 mt-16">
@@ -181,8 +175,8 @@ const CourseIdPage = async ({
                     <AttachmentForm
                         initialData={course}
                         courseID={params.courseID}
-                    >
-                    </AttachmentForm>
+                    />
+                    
                 </div>
 
             </div>

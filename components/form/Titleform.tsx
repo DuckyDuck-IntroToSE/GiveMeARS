@@ -17,7 +17,9 @@ import { Course } from "@prisma/client";
 
 
 interface TitleFormProps {
-    initialData: Course
+    initialData: {
+        title: string;
+    }
     courseID: string;
 }
 
