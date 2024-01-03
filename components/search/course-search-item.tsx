@@ -1,37 +1,53 @@
 "use client";
 
-import { Card, CardBody, CardFooter } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Chip } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import { CourseProgress } from "@/components/ui/course-progress";
+import { Category, Course } from "@prisma/client";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+
+type CourseWithProgressWithCategory = Course & {
+    category: Category | null;
+    chapters: { id: string }[];
+    progress: number | null;
+  };
 
 interface CourseSearchItemProps {
-    item: any;
+    item: CourseWithProgressWithCategory;
     index: number;
 }
 
 const CourseSearchItem = (
     { item, index }: CourseSearchItemProps
 ) => {
+    const router = useRouter();
+    const onPress = () => {
+        toast.success("Redirecting to course page...");
+        router.push(`/courses/${item.id}`);
+    };
     return (
         <div>
-            <Card shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")} className="w-full mb-2">
+            <Card shadow="sm" key={index} isPressable onPress={onPress} className="w-full mb-2">
                 <CardBody className="overflow-visible p-0">
                     <Image
                         width={300}
                         height={100}
                         alt={item.title}
                         className="w-full object-cover h-[200px]"
-                        src={item.imageURL}
+                        src={item.imageURL || ""}
                     />
                 </CardBody>
                 <CardFooter className="text-small flex flex-col gap-4">
-                    <div className="flex flex-col items-start w-full">
-                        <h3 className="text-lg font-medium">
+                    <div className="flex flex-col w-full gap-4 items-start">
+                        <Chip color="default" className="text-small justify-center" >{item.category?.name}</Chip>
+
+                        <h3 className="text-lg font-medium text-start">
                             {item.title}
                         </h3>
-                        <p className="text-sm">
-                            {item.description}
+                        <p className="text-sm text-start">
+                            {item.shortDescription}
                         </p>
                     </div>
 
@@ -47,7 +63,7 @@ const CourseSearchItem = (
 
                 </CardFooter>
             </Card>
-            <Button fullWidth>Subscribe</Button>
+            {/* <Button fullWidth>Subscribe</Button> */}
         </div>
 
     );

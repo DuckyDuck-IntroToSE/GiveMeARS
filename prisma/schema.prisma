@@ -10,10 +10,14 @@ datasource db {
 }
 
 model Course {
-  id          String       @id @default(uuid())
-  userID      String
-  title       String       @db.Text
-  description String?      @db.Text
+  id                  String  @id @default(uuid())
+  userID              String
+  title               String  @db.Text
+  shortDescription    String? @db.Text @map("description")
+  requirements        String? @db.Text
+  detailedDescription String? @db.Text
+  targetAudience      String? @db.Text
+
   imageURL    String?      @db.Text
   isPublished Boolean      @default(false)
   categoryID  String?
@@ -22,7 +26,7 @@ model Course {
   category    Category?    @relation(fields: [categoryID], references: [id])
   chapters    Chapter[]
   attachments Attachment[]
-  enrollments  Enrollment[]
+  enrollments Enrollment[]
 
   @@index([categoryID])
   @@fulltext([title])
