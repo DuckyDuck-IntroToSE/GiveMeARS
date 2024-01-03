@@ -28,20 +28,6 @@ const Hero = () => {
                 All you need is a computer and an internet connection. 
                 Join us today and start your IT journey.
               </p>
-
-              <div className="mt-5">
-                <form onSubmit={handleSubmit}>
-                  <div className="flex flex-wrap gap-5">
-                    <button
-                      aria-label="get started button"
-                      className="flex rounded-full border border-stroke bg-black px-2.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho "
-                    >
-                      Get Started
-                    </button>
-                  </div>
-                </form>
-
-              </div>
             </div>
 
             <div className="animate_right hidden md:w-1/2 lg:block">

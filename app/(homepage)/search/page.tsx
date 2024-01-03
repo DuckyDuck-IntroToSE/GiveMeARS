@@ -1,9 +1,7 @@
+import { redirect } from "next/navigation";
+
 const SearchPage = () => {
-    return ( 
-        <div>
-            This is the search page
-        </div>
-     );
+    return redirect("/");
 }
  
 export default SearchPage;

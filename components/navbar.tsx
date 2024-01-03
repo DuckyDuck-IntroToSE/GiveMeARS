@@ -58,7 +58,8 @@ export const Navbar = () => {
 						</NavbarItem>
 					))}
 				</ul>
-				<Categories></Categories>
+				{/* <Categories></Categories> */}
+				<NextLink href={"/search/courses"}>Courses</NextLink>
 			</NavbarContent>
 
 			<NavbarContent
@@ -67,22 +68,16 @@ export const Navbar = () => {
 			>
 				<NavbarItem className="hidden sm:flex gap-2">
 
-					<NextLink href={"/search/courses"}>
-						<Button
-							startContent={(<LibrarySquare className="h-6 w-6"></LibrarySquare>)}
-						>Courses</Button>
-					</NextLink>
-
-					<NextLink href={"/search/books"}>
+					{/* <NextLink href={"/search/books"}>
 						<Button
 							startContent={(<Book className="h-6 w-6"></Book>)}
 						>Books</Button>
-					</NextLink>
+					</NextLink> */}
 				</NavbarItem>
 
 				<NavbarItem className="hidden sm:flex gap-2">
-					<NotifyIcon className="text-default-500"></NotifyIcon>
-					<CartIcon className="text-default-500"></CartIcon>
+					{/* <NotifyIcon className="text-default-500"></NotifyIcon>
+					<CartIcon className="text-default-500"></CartIcon> */}
 					<SettingIcon></SettingIcon>
 					<ThemeSwitch />
 				</NavbarItem>

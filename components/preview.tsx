@@ -18,7 +18,10 @@ export const Preview = ({
     <ReactQuill
       theme="bubble"
       value={value}
-      readOnly
+      readOnly={true}
+      modules={{
+        toolbar: false,
+      }}
     />
   );
 };

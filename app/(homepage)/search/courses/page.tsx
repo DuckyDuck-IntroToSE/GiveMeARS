@@ -1,5 +1,5 @@
 import { getCourses } from "@/actions/get-courses";
-import CourseSearchItem from "@/components/search/course-search-item";
+import CourseSearchItem from "@/components/list/course-search-item";
 import { CourseProgress } from "@/components/ui/course-progress";
 import { auth } from "@clerk/nextjs";
 

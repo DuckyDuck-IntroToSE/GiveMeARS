@@ -36,6 +36,10 @@ export const siteConfig = {
 		instructorDashboard:{
 			label: "Instructor Dashboard",
 			href: "/instructor"
+		},
+		myLearningDashboard:{
+			label: "My Learning Dashboard",
+			href: "/my-learning"
 		}
 	},
 		
