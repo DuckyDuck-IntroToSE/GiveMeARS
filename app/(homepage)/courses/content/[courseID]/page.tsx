@@ -37,6 +37,7 @@ const CourseContentPage = async (
                                 chapterID={chapter.id}
                                 chapterTitle={chapter.title}
                                 chapterDescription={chapter.description || ""}
+                                key={index}
                             ></ChapterAccordion>
                         ))}
                     </div>

@@ -9,7 +9,7 @@ interface ChapterSubcribeButtonProps {
     isSubcribed: boolean;
 }
 
-const ChapterSubcribeButton = async (
+const ChapterSubcribeButton = (
     { courseID, isSubcribed }: ChapterSubcribeButtonProps
 ) => {
     const router = useRouter();

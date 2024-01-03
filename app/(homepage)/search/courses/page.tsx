@@ -2,6 +2,7 @@ import { getCourses } from "@/actions/get-courses";
 import CourseSearchItem from "@/components/list/course-search-item";
 import { CourseProgress } from "@/components/ui/course-progress";
 import { auth } from "@clerk/nextjs";
+import Image from "next/image";
 
 interface SearchPageProps {
     searchParams: {
@@ -29,7 +30,9 @@ const CourseSearchPage = async (
     return (
         <>
             {courses.length === 0 && (
-                <div className="w-full flex flex-col items-center justify-center"><img src="/images/tonton-chick.gif" alt="" /></div>
+                <div className="w-full flex flex-col items-center justify-center">
+                    <Image src="/images/tonton-chick.gif" alt="No result image"></Image>
+                </div>
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
@@ -37,6 +40,7 @@ const CourseSearchPage = async (
                     <CourseSearchItem 
                         item={item}
                         index={index}
+                        key={index}
                     ></CourseSearchItem>
                 ))}
             </div>

@@ -31,6 +31,7 @@ const MyLearningPage = async () => {
                             course={enrollcourse.course}
                             index={index}
                             userID={userId}
+                            key={index}
                         ></MyLearningItem>
                     ))}
                 </div>

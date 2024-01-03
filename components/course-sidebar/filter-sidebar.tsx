@@ -6,6 +6,7 @@ import { Category } from "@prisma/client";
 import qs from "query-string"
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import path from "path";
 
 interface CategoriesProps {
     items: Category[];
@@ -33,7 +34,7 @@ export const CoursesFilterSidebar = (
         }, { skipEmptyString: true, skipNull: true, arrayFormat: 'comma'});
 
         router.push(url);
-    }, [groupSelected]);
+    }, [groupSelected, currentTitle, pathname, router]);
 
     return (<>
         <aside className="h-screen sticky top-0 w-60">

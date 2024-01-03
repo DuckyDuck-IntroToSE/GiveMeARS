@@ -33,7 +33,7 @@ export const CoursesFilterSidebar = (
         }, { skipEmptyString: true, skipNull: true, arrayFormat: 'comma'});
 
         router.push(url);
-    }, [groupSelected]);
+    }, [groupSelected, currentTitle, pathname, router]);
 
     return (<>
         <aside className="h-screen sticky top-0 w-60">

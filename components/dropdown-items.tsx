@@ -25,7 +25,9 @@ export const Categories = () => {
                 <DropdownMenu >
                     {
                         siteConfig.categories.map((item) => (
-                            <DropdownItem>
+                            <DropdownItem
+                                key={item.name}
+                            >
                                 {item.name}
                             </DropdownItem>
                         ))

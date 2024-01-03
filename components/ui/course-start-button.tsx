@@ -9,7 +9,7 @@ interface StartCourseButtonProps {
     firstChapterID: string;
 }
 
-const StartCourseButton = async (
+const StartCourseButton = (
     { courseID, firstChapterID }: StartCourseButtonProps
 ) => {
     const router = useRouter();

@@ -5,7 +5,7 @@ import { Course } from "@prisma/client"
 import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown, MoreHorizontal, Pencil } from "lucide-react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { redirect } from "next/navigation"
 import { Chip } from "@nextui-org/react"
 
 import {
@@ -84,7 +84,6 @@ export const columns: ColumnDef<Course>[] = [
     id: "actions",
     cell: ({ row }) => {
       const { id } = row.original;
-      const router = useRouter();
 
       return (
         <Dropdown>
@@ -95,7 +94,7 @@ export const columns: ColumnDef<Course>[] = [
             <DropdownItem 
               onClick={() => { 
                 toast.success("Loading to course edition page...")
-                router.push(`/instructor/courses/${id}`) }}
+                redirect(`/instructor/courses/${id}`) }}
               startContent={<Pencil className="h-4 w-4"></Pencil>}
               >
               Edit Course

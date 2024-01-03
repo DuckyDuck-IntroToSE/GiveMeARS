@@ -19,7 +19,7 @@ export const NextChapterButton = async (
 ) => {
     const router = useRouter();
 
-    const onClick = async () => {
+    const onClick = () => {
         toast.success("Loading to the next chapter...");
         router.push(`/courses/content/${courseID}/chapters/${nextChapterID}`);
     };
@@ -44,7 +44,7 @@ export const PreviousChapterButton = async (
 ) => {
     const router = useRouter();
 
-    const onClick = async () => {
+    const onClick = () => {
         toast.success("Loading to the previous chapter...");
         router.push(`/courses/content/${courseID}/chapters/${previousChapterID}`);
     };
