@@ -43,11 +43,7 @@ const CourseContentLayoutPage = async ({
         return redirect("/");
     }
 
-    const attachments = await db.attachment.findMany({
-        where: {
-            courseID: params.courseID,
-        }
-    });
+    
 
     const progressCount = await getProgress(userId, params.courseID);
 

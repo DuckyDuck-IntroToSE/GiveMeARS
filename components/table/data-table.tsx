@@ -24,6 +24,7 @@ import { Button } from "@nextui-org/react"
 import { Input } from "@nextui-org/react"
 import { useRouter } from "next/navigation"
 import { Search } from "lucide-react"
+import toast from "react-hot-toast"
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -78,7 +79,9 @@ export function DataTable<TData, TValue>({
 
                 <Button
                     variant= "solid" className="bg-blue-500 text-white hover:bg-blue-700 shadow-md"
-                    onClick={() => router.push("/instructor/create")}
+                    onClick={() => {
+                        toast.success("Loading to creation page...");
+                        router.push("/instructor/create");}}
                 > New Course
                 </Button>
             </div>

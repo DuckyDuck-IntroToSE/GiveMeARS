@@ -28,9 +28,6 @@ const Footer = () => {
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum atque vero in. Dolores similique ducimus error aperiam. Nam, debitis at!
                 </p>
 
-                <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
-                  contact
-                </p>
                 <a
                   href="#"
                   className="text-itemtitle font-medium text-black dark:text-white"
@@ -62,7 +59,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/about"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         About

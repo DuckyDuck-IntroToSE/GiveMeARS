@@ -20,12 +20,12 @@ import {
 } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
-import {auth, UserButton } from "@clerk/nextjs";
+import { auth, UserButton } from "@clerk/nextjs";
 import { Categories } from "@/components/dropdown-items";
 import { SettingIcon } from "@/components/dropdown-items";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Button } from "@nextui-org/button";
-import { LibrarySquare, Book } from 'lucide-react';
+import { LibrarySquare, Book, UserRound, BookOpenText } from 'lucide-react';
 
 
 
@@ -41,25 +41,36 @@ export const Navbar = () => {
 						<p className="font-bold text-inherit">GIVEMEARs</p>
 					</NextLink>
 				</NavbarBrand>
+				<NavbarItem className="hidden sm:flex gap-2">
+					<NextLink
+						className="hover:text-blue-500"
+						color="foreground"
+						href={"/about"}
+					>
+						About
+					</NextLink>
+					<NextLink
+						className="hover:text-blue-500"
+						color="foreground"
+						href={"/search/courses"}
+					>
+						Courses
+					</NextLink>
+				</NavbarItem>
 				<ul className="hidden lg:flex gap-4 justify-start ml-2">
-					{siteConfig.navItems.map((item) => (
+					{/* {siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
 							<NextLink
-								className={clsx(
-									linkStyles({ color: "foreground" }),
-									"data-[active=true]:text-primary data-[active=true]:font-medium"
-								)}
+								className="hover:text-blue-500"
 								color="foreground"
 								href={item.href}
 							>
 								{item.label}
 							</NextLink>
-
 						</NavbarItem>
-					))}
+					))} */}
 				</ul>
 				{/* <Categories></Categories> */}
-				<NextLink href={"/search/courses"}>Courses</NextLink>
 			</NavbarContent>
 
 			<NavbarContent
@@ -67,18 +78,24 @@ export const Navbar = () => {
 				justify="end"
 			>
 				<NavbarItem className="hidden sm:flex gap-2">
-
-					{/* <NextLink href={"/search/books"}>
+					<NextLink href={"/instructor/"}>
 						<Button
-							startContent={(<Book className="h-6 w-6"></Book>)}
-						>Books</Button>
-					</NextLink> */}
+							className="hover:bg-blue-600 dark:hover:bg-blue-800"
+							startContent={(<UserRound className="h-6 w-6"></UserRound>)}
+						>Instructor Dashboard</Button>
+					</NextLink>
+					<NextLink href={"/my-learning"}>
+						<Button
+							className="hover:bg-blue-600 dark:hover:bg-blue-800"
+							startContent={(<BookOpenText className="h-6 w-6"></BookOpenText>)}
+						>My learning</Button>
+					</NextLink>
 				</NavbarItem>
 
 				<NavbarItem className="hidden sm:flex gap-2">
 					{/* <NotifyIcon className="text-default-500"></NotifyIcon>
 					<CartIcon className="text-default-500"></CartIcon> */}
-					<SettingIcon></SettingIcon>
+					{/* <SettingIcon></SettingIcon> */}
 					<ThemeSwitch />
 				</NavbarItem>
 

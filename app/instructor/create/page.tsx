@@ -42,7 +42,7 @@ const CreatePage = () => {
     };
 
     return (
-        <div className="mx-auto flex flex-col h-full p-6 border">
+        <div className="mx-auto flex flex-col h-full p-6">
             <div>
                 <h1 className="text-2xl">Name your course</h1>
             </div>

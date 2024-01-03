@@ -1,6 +1,5 @@
 import { Button } from "@nextui-org/button"
 import Link from "next/link"
-import InstructorCourseTable from "@/components/table/InstructorCourseTable"
 import { db } from "@/lib/ds"
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"

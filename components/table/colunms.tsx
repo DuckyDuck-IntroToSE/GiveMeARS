@@ -15,6 +15,7 @@ import {
   DropdownSection,
   DropdownItem
 } from "@nextui-org/dropdown";
+import toast from "react-hot-toast"
 
 
 export const columns: ColumnDef<Course>[] = [
@@ -92,7 +93,9 @@ export const columns: ColumnDef<Course>[] = [
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
             <DropdownItem 
-              onClick={() => { router.push(`/instructor/courses/${id}`) }}
+              onClick={() => { 
+                toast.success("Loading to course edition page...")
+                router.push(`/instructor/courses/${id}`) }}
               startContent={<Pencil className="h-4 w-4"></Pencil>}
               >
               Edit Course
