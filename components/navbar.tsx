@@ -45,6 +45,13 @@ export const Navbar = () => {
 					<NextLink
 						className="hover:text-blue-500"
 						color="foreground"
+						href={"/"}
+					>
+						Home
+					</NextLink>
+					<NextLink
+						className="hover:text-blue-500"
+						color="foreground"
 						href={"/about"}
 					>
 						About

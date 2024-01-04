@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import { fontSans } from "@/config/fonts";
 import clsx from "clsx";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToasterProvider } from "@/components/providers/toaster-provider";
@@ -14,14 +13,11 @@ export default function RootLayout({
 		<ClerkProvider>
 			
 			<html lang="en" suppressHydrationWarning>
-				{/* <head>
-					<link rel="icon" href="/images/logo.ico"></link>
-				</head> */}
+				<head>
+					<link rel="icon" href="./favicon.ico"></link>
+				</head>
 				<body
-					className={clsx(
-						"min-h-screen bg-background font-sans antialiased",
-						fontSans.variable
-					)}
+					className="min-h-screen bg-background font-sans antialiased"
 				>
 					<ToasterProvider/>
 					<Providers themeProps={{ attribute: "class", defaultTheme: "white" }}>

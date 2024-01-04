@@ -1,22 +1,27 @@
-import NextLink from "next/link";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code"
-import { button as buttonStyles } from "@nextui-org/theme";
 import Hero from "@/components/hero";
-import { TopCourses, ComputerScienceCourses, DataScienceCourses, PopularCourses, SoftwareEngineeringCourse, TopBooks } from "@/components/carousel";
-import {UserButton, SignedIn, SignedOut} from "@clerk/nextjs"
+import { ArtificialIntelligenceCourses, DatabaseCourses, DevOpsCourses, NetworkSecurityCourses, SoftwareEngineeringCourses, TopCourses, WebDevelopmentCourses } from "@/components/carousel";
+import { getAICourses, getDatabaseCourses, getDevOpsCourses, getNetworkSecurityCourses, getSoftwareEngineeringCourses, getTopCourses, getWebDevelopmentCourses } from "@/actions/get-courses-homepage";
 
-export default function Home() {
+
+export default async function Home() {
+	const topCourses = await getTopCourses();
+	const aiCourses = await getAICourses();
+	const dbCourses = await getDatabaseCourses();
+	const devOpsCourses = await getDevOpsCourses();
+	const networkSecurityCourses = await getNetworkSecurityCourses();
+	const softwareEngineeringCourses = await getSoftwareEngineeringCourses();
+	const webDevelopmentCourses = await getWebDevelopmentCourses();
+
 	return (
 		<div>
 			<Hero></Hero>
-			<TopCourses></TopCourses>
-			<PopularCourses></PopularCourses>
-			<ComputerScienceCourses></ComputerScienceCourses>
-			<DataScienceCourses></DataScienceCourses>
-			<SoftwareEngineeringCourse></SoftwareEngineeringCourse>
-			<TopBooks></TopBooks>
+			<TopCourses topCourses={topCourses}/>
+			<ArtificialIntelligenceCourses aiCourses={aiCourses}/>
+			<DatabaseCourses dbCourses={dbCourses}></DatabaseCourses>
+			<DevOpsCourses DevOpsCourses={devOpsCourses}></DevOpsCourses>
+			<NetworkSecurityCourses NetworkSecurityCourses={networkSecurityCourses}></NetworkSecurityCourses>
+			<SoftwareEngineeringCourses SoftwareEngineeringCourses={softwareEngineeringCourses}></SoftwareEngineeringCourses>
+			<WebDevelopmentCourses WebDevelopmentCourses={webDevelopmentCourses}></WebDevelopmentCourses>
 		</div>
 
 	);
