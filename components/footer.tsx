@@ -12,20 +12,21 @@ const Footer = () => {
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
           {/* <!-- Footer Top --> */}
           <div className="py-20 lg:py-25">
-            <div className="flex gap-10 lg:justify-between lg:gap-4">
+            <div className="flex flex-col sm:flex-row gap-16 lg:justify-between lg:gap-4 text-center items-center sm:text-start sm:items-start">
               <motion.div variants={{ hidden: { opacity: 0, y: -20, }, visible: { opacity: 1, y: 0, }, }}
                 initial="hidden"
                 whileInView="visible"
                 transition={{ duration: 1, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="animate_top md:w-1/3"
+                className="animate_top w-full md:w-1/3"
               >
-                <NextLink className="flex justify-start items-center gap-1" href="/">
+                <NextLink className="gap-1" href="/">
                   <p className="font-bold text-inherit text-2xl">GIVEMEARs</p>
                 </NextLink>
 
                 <p className="mb-10 mt-5">
                   GIVEMEARs is a website for sharing and learning IT courses. 
+                  This website is a project for the course Introduction to Software Engineering at the University of Science, Ho Chi Minh National Univerisity.
                 </p>
 
                 <a
@@ -41,9 +42,9 @@ const Footer = () => {
                   whileInView="visible"
                   transition={{ duration: 1, delay: 0.1 }}
                   viewport={{ once: true }}
-                  className="animate_top md:w-1/3"
+                  className="animate_top w-full md:w-1/4 pl-30"
                 >
-                  <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
+                  <h4 className="mb-9 font-medium text-black dark:text-white">
                     Quick Links
                   </h4>
 
@@ -80,15 +81,12 @@ const Footer = () => {
                   whileInView="visible"
                   transition={{ duration: 1, delay: 0.1 }}
                   viewport={{ once: true }}
-                  className="animate_top md:w-1/3"
+                  className="animate_top w-full sm:w-1/3"
                 >
                   <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
-                    Note:
+                    Caution:
                   </h4>
-                  <p className="mb-4 w-[90%]">
-                    This website is a project for the course Introduction to Software Engineering at the University of Science, Ho Chi Minh National Univerisity.
-                  </p>
-                  <p className="mb-4 w-[90%]">
+                  <p className="mb-4">
                     The website is not for commercial purposes.
                   </p>
                 </motion.div>

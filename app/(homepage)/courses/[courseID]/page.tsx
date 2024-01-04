@@ -42,8 +42,8 @@ const CourseIdPage = async (
 
     return (
         <div className="mb-10">
-            <div className="flex mt-5">
-                <div className="w-2/3 flex flex-col gap-5 mr-10">
+            <div className="flex flex-col md:flex-row mt-5 gap-10">
+                <div className="w-full md:w-2/3 flex flex-col gap-5 mr-10">
                     <div className="text-4xl font-bold">{course?.title}</div>
                     <div className="text-base">{course?.shortDescription}</div>
                     <div className="">
@@ -86,7 +86,7 @@ const CourseIdPage = async (
 
                 </div>
 
-                <div className="w-1/3">
+                <div className="flex flex-col w-full md:w-1/3">
                     <Image
                         src={course?.imageURL!}
                         alt={course?.title!}
@@ -97,6 +97,7 @@ const CourseIdPage = async (
                     
                     <div className="my-4">
                         <ChapterSubcribeButton
+                            userID={userId!}
                             courseID={course?.id!}
                             isSubcribed={isSubcribed}
                         ></ChapterSubcribeButton>

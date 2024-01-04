@@ -5,16 +5,22 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 
 interface ChapterSubcribeButtonProps {
+    userID: string;
     courseID: string;
     isSubcribed: boolean;
 }
 
 const ChapterSubcribeButton = (
-    { courseID, isSubcribed }: ChapterSubcribeButtonProps
+    { courseID, isSubcribed, userID }: ChapterSubcribeButtonProps
 ) => {
     const router = useRouter();
 
     const subcribeCourse = async () => {
+        if (!userID) {
+            toast.error("You must login first");
+            return;
+        }
+
         try {
             toast.success("Subcribing...");
             await axios.post(`/api/courses/${courseID}/enrollment`);

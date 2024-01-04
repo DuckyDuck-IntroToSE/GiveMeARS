@@ -33,7 +33,7 @@ export const Navbar = () => {
 	const { userId } = auth();
 
 	return (
-		<NextUINavbar maxWidth="xl" isBordered position="static">
+		<NextUINavbar maxWidth="xl" isBordered position="sticky">
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
@@ -41,7 +41,7 @@ export const Navbar = () => {
 						<p className="font-bold text-inherit">GIVEMEARs</p>
 					</NextLink>
 				</NavbarBrand>
-				<NavbarItem className="hidden sm:flex gap-2">
+				<NavbarItem className="hidden md:flex gap-2">
 					<NextLink
 						className="hover:text-blue-500"
 						color="foreground"
@@ -64,24 +64,11 @@ export const Navbar = () => {
 						Courses
 					</NextLink>
 				</NavbarItem>
-				<ul className="hidden lg:flex gap-4 justify-start ml-2">
-					{/* {siteConfig.navItems.map((item) => (
-						<NavbarItem key={item.href}>
-							<NextLink
-								className="hover:text-blue-500"
-								color="foreground"
-								href={item.href}
-							>
-								{item.label}
-							</NextLink>
-						</NavbarItem>
-					))} */}
-				</ul>
-				{/* <Categories></Categories> */}
+				
 			</NavbarContent>
 
 			<NavbarContent
-				className="hidden sm:flex basis-1/5 sm:basis-full"
+				className="hidden md:flex basis-1/5 sm:basis-full"
 				justify="end"
 			>
 				<NavbarItem className="hidden sm:flex gap-2">
@@ -108,8 +95,8 @@ export const Navbar = () => {
 
 				<NavbarItem className="hidden md:flex">
 					{!userId && (<>
-						<NextLink href="sign-in" className="mr-2"><Button color="default"> Sign In </Button></NextLink>
-						<NextLink href="sign-up" className="mr-2"><Button className="bg-blue-500"> Sign Up </Button></NextLink>
+						<NextLink href="/sign-in" className="mr-2"><Button color="default"> Sign In </Button></NextLink>
+						<NextLink href="/sign-up" className="mr-2"><Button className="bg-blue-500"> Sign Up </Button></NextLink>
 					</>)}
 
 					<div>
@@ -118,30 +105,29 @@ export const Navbar = () => {
 				</NavbarItem>
 			</NavbarContent>
 
-			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+			<NavbarContent className="md:hidden basis-1 pl-4" justify="end">
 				<ThemeSwitch />
+				<UserButton afterSignOutUrl="/"></UserButton>
 				<NavbarMenuToggle />
 			</NavbarContent>
 
 			<NavbarMenu>
 				<div className="mx-4 mt-2 flex flex-col gap-2">
-					{siteConfig.navMenuItems.map((item, index) => (
-						<NavbarMenuItem key={`${item}-${index}`}>
-							<Link
-								color={
-									index === 2
-										? "primary"
-										: index === siteConfig.navMenuItems.length - 1
-											? "danger"
-											: "foreground"
-								}
-								href="#"
-								size="lg"
-							>
-								{item.label}
-							</Link>
-						</NavbarMenuItem>
-					))}
+					<NavbarMenuItem>
+						<Link href="/"> Home </Link>
+					</NavbarMenuItem>
+					<NavbarMenuItem>
+						<Link href="/about"> About </Link>
+					</NavbarMenuItem>
+					<NavbarMenuItem>
+						<Link href="/search/courses"> Courses </Link>
+					</NavbarMenuItem>
+					<NavbarMenuItem>
+						<Link href="/instructor/courses"> Instructor Dashboard </Link>
+					</NavbarMenuItem>
+					<NavbarMenuItem>
+						<Link href="/my-learning"> My Learning </Link>
+					</NavbarMenuItem>
 				</div>
 			</NavbarMenu>
 		</NextUINavbar>

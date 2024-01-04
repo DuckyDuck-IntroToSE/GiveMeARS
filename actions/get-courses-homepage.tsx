@@ -3,7 +3,10 @@ import { db } from "@/lib/ds";
 
 export const getTopCourses = async () => {
     const topCourses = await db.course.findMany({
-        take: 10,
+        where:{
+            isPublished: true
+        },
+        take: 8,
         orderBy: {
             enrollments: {
                 _count: "desc"
@@ -22,8 +25,9 @@ export const getTopCourses = async () => {
 
 export const getAICourses = async () => {
     const aiCourses = await db.course.findMany({
-        take: 10,
+        take: 8,
         where: {
+            isPublished: true,
             category: {
                 name: "Artificial Intelligence"
             }
@@ -40,8 +44,9 @@ export const getAICourses = async () => {
 
 export const getDatabaseCourses = async () => {
     const databaseCourses = await db.course.findMany({
-        take: 10,
+        take: 8,
         where: {
+            isPublished: true,
             category: {
                 name: "Database Design & Implement"
             }
@@ -58,8 +63,9 @@ export const getDatabaseCourses = async () => {
 
 export const getDevOpsCourses = async () => {
     const DevOpsCourses = await db.course.findMany({
-        take: 10,
+        take: 8,
         where: {
+            isPublished: true,
             category: {
                 name: "DevOps"
             }
@@ -77,8 +83,9 @@ export const getDevOpsCourses = async () => {
 
 export const getNetworkSecurityCourses = async () => {
     const NetworkSecurityCourses = await db.course.findMany({
-        take: 10,
+        take: 8,
         where: {
+            isPublished: true,
             category: {
                 name: "Network Security"
             }
@@ -96,8 +103,9 @@ export const getNetworkSecurityCourses = async () => {
 
 export const getSoftwareEngineeringCourses = async () => {
     const SoftwareEngineeringCourses = await db.course.findMany({
-        take: 10,
+        take: 8,
         where: {
+            isPublished: true,
             category: {
                 name: "Software Engineering"
             }
@@ -114,8 +122,9 @@ export const getSoftwareEngineeringCourses = async () => {
 
 export const getWebDevelopmentCourses = async () => {
     const WebDevelopmentCourses = await db.course.findMany({
-        take: 10,
+        take: 8,
         where: {
+            isPublished: true,
             category: {
                 name: "Web Development"
             }
