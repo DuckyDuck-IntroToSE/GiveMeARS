@@ -18,6 +18,9 @@ const CourseContentPage = async (
             courseId: params.courseID,
             isPublished: true
         },
+        orderBy: {
+            position: "asc"
+        }
     });
 
     return (
