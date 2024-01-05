@@ -12,7 +12,10 @@ const MyLearningPage = async () => {
 
     const EnrolledCourses = await db.enrollment.findMany({
         where: {
-            userId: userId
+            userId: userId,
+            course: {
+                isPublished: true
+            }
         }, 
         include: {
             course: true
