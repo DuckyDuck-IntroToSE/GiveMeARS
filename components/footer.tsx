@@ -67,10 +67,10 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/search/courses"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Categories
+                        Courses
                       </a>
                     </li>
                   </ul>

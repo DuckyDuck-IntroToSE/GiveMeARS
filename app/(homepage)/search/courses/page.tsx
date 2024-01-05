@@ -3,6 +3,7 @@ import CourseSearchItem from "@/components/list/course-search-item";
 import { CourseProgress } from "@/components/ui/course-progress";
 import { auth } from "@clerk/nextjs";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 interface SearchPageProps {
     searchParams: {
@@ -16,7 +17,7 @@ const CourseSearchPage = async (
 ) => {
     const { userId } = auth();
     if (!userId) {
-        throw new Error("No user ID found");
+        return redirect("/");
     }
 
     const categoryIDs = searchParams.categoryID?.split(",") ?? [];

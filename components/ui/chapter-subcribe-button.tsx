@@ -18,6 +18,7 @@ const ChapterSubcribeButton = (
     const subcribeCourse = async () => {
         if (!userID) {
             toast.error("You must login first");
+            router.push("/sign-in");
             return;
         }
 
