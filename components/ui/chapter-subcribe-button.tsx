@@ -23,10 +23,10 @@ const ChapterSubcribeButton = (
         }
 
         try {
-            toast.success("Subcribing...");
+            toast.success("Subscribing...");
             await axios.post(`/api/courses/${courseID}/enrollment`);
             router.refresh();
-            toast.success("Subcribe successfully");
+            toast.success("Subscribe successfully");
         }
         catch {
             toast.error("Something went wrong");
@@ -35,10 +35,10 @@ const ChapterSubcribeButton = (
 
     const unSubcribeCourse = async () => {
         try {
-            toast.success("Unsubcribing...");
+            toast.success("Unsubscribing...");
             await axios.delete(`/api/courses/${courseID}/enrollment`);
             router.refresh();
-            toast.success("Unsubcribe successfully");
+            toast.success("Unsubscribe successfully");
         }
         catch {
             toast.error("Something went wrong");
@@ -53,13 +53,13 @@ const ChapterSubcribeButton = (
                     className="w-full"
                     onClick={unSubcribeCourse}
                     color="danger"
-                >Unscribe</Button>
+                >Unsubscribe</Button>
             )}
             {!isSubcribed && (
                 <Button
                     className="bg-blue-500 dark:bg-blue-700 w-full"
                     onClick={subcribeCourse}
-                >Subcribe this course</Button>
+                >Subscribe this course</Button>
             )}
         </div>
     );
